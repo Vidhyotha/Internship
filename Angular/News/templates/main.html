@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>NEWS</title>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo"><h2>NEWS</h2></a>
+        <ul>
+            <li><a href="#">Category</a>
+                <ul>
+                    <li><a href="?category=business">Business</a></li>
+                    <li><a href="?category=entertainment">Entertainment</a></li>
+                    <li><a href="?category=science">Science</a></li>
+                    <li><a href="?category=sports">Sports</a></li>
+                    <li><a href="?category=technology">Technology</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Country</a>
+                <ul>
+                    <li><a href="?country=us">United States</a></li>
+                    <li><a href="?country=in">India</a></li>
+                    <li><a href="?country=gb">United Kingdom</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+<section id="main">
+    <div class = "head">Top Headlines</div>
+    {% for title,desc,img,url in contents %}
+    <div class="wrapper">
+        <div class="item"><a href="{{url}}"><img src="{{img}}"></a></div>
+        <div class = "c-box">
+        <div class="content"><a href="{{url}}"><h2>{{title}}</h2></a></div>
+        <div class="content"><a href="{{url}}"><p>{{desc}}</p></a></div>
+        </div>
+        </div> 
+    {% endfor %}  
+    
+</section>
+</body>
+</html>

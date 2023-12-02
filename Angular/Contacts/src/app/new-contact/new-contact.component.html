@@ -1,0 +1,29 @@
+<h2>Enter New Contact Details:</h2>
+
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="FirstName"> First Name </label>
+    <input id="FirstName" type="text" formControlName="FirstName" />
+  </div>
+
+  <div>
+    <label for="LastName"> Last Name </label>
+    <input id="LastName" type="text" formControlName="LastName" />
+  </div>
+
+  <div>
+    <label for="PhoneNo"> Phone No </label>
+    <input id="PhoneNo" type="text" formControlName="PhoneNo" />
+  </div>
+
+  <div>
+    <label for="emailID"> email id</label>
+    <input id="emailID" type="text" formControlName="emailID" />
+  </div>
+
+  <div>
+    <label for="CityName"> City Name</label>
+    <input id="CityName" type="text" formControlName="CityName" />
+  </div>
+  <button type="button" (click)="add()">Add</button>
+</form>

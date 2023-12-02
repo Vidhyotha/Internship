@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title class=>News</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <select name="country" class="form-select bg-dark text-white border border-0"
+                    aria-label="Default select example" [(ngModel)]="country" (change)="loadNewItems()">
+                    <option value="in">India</option>
+                    <option value="us">United States</option>
+                    <option value="gb">United Kingdom</option>
+                </select>
+            </div>
+            <div class="col">
+                <select name="category" class="form-select bg-dark text-white border border-0"
+                    aria-label="Default select example" [(ngModel)]="category" (change)="loadNewItems()">
+                    <option value="business">Business</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="general">General</option>
+                    <option value="health">Health</option>
+                    <option value="science">Science</option>
+                    <option value="sports">Sports</option>
+                    <option value="technology">Technology</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <h1></h1>
+    <div class="container">
+        <div class="headline" *ngFor="let newsItem of newsItems">
+            <div class="card my-4 mx-4 bg-dark text-white border border-0" style="width: 78rem;">
+                <img src="{{newsItem.urlToImage}}" class="card-img-top" alt="{{newsItem.urlToImage}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{newsItem.title}}</h5>
+                    <p class="card-text">{{newsItem.description}}</p>
+                    <a href="{{newsItem.url}}" target="_blank" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-around">
+            <div class="btn-group grid gap-3" role="group" aria-label="Basic example">
+                <button (click)="prevpage()" type="button" class="btn btn-primary p-2 g-col-6">Previous</button>
+                <label class="p-2 g-col-6 text-white">Page No: {{page}}</label>
+                <button (click)="nextpage()" type="button" class="btn btn-primary p-2 g-col-6">Next</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
